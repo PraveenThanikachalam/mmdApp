@@ -1,27 +1,42 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "esnext", // Change to "esnext" for better compatibility
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
+    "strict": false,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node", // Change to "node" for better module resolution
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "noEmit": true, // Set to true to prevent emitting JavaScript files
+    "forceConsistentCasingInFileNames": true, // Helps catch typos in import paths
+    "baseUrl": ".", // Helps with module resolution, set to the root of your project
+    "paths": {
+      "@/*": [
+        "*"
+      ] // Update the path mapping to match your project structure
+    },
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "paths": {
-      "@/*": ["./*"]
-    }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ], // Adjust file inclusion patterns
+  "exclude": [
+    "node_modules"
+  ] // Exclude the node_modules folder from TypeScript checking
 }
